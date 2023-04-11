@@ -1,0 +1,29 @@
+/* Variables */
+$font-color: white;
+$bg-color: #03001C;
+$fg-color: #262441;
+$border-color: rgba(255, 255, 255, 0.43);
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bg-color;
+  color: $font-color;
+  font-family: "Lato", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+text {
+  font-family: "Lato", sans-serif;
+}
+
+
+

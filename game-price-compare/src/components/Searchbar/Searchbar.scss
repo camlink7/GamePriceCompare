@@ -1,0 +1,19 @@
+@import "../../index.scss";
+
+.searchbar-icon-outer {
+  border-radius: 0 5rem 5rem 0 !important;
+  background-color: lighten($fg-color, 5%);
+  color: $font-color;
+  border: none;
+  border-left: solid 3px $border-color;
+}
+
+.searchbar-input {
+  background-color: $fg-color !important;
+  color: $font-color;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+}.searchbar-input:focus {
+  color: $font-color;
+ }

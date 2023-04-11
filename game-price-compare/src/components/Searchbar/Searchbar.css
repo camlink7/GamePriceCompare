@@ -1,0 +1,40 @@
+/* Variables */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #03001C;
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+text {
+  font-family: "Lato", sans-serif;
+}
+
+.searchbar-icon-outer {
+  border-radius: 0 5rem 5rem 0 !important;
+  background-color: #302d51;
+  color: white;
+  border: none;
+  border-left: solid 3px rgba(255, 255, 255, 0.43);
+}
+
+.searchbar-input {
+  background-color: #262441 !important;
+  color: white;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.searchbar-input:focus {
+  color: white;
+}
+
+/*# sourceMappingURL=Searchbar.css.map */
