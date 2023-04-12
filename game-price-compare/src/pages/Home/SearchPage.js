@@ -98,7 +98,15 @@ export default function SearchPage() {
                       </div>
 
                   }
+
               </div>
+              { gameLookupData &&
+                  <div className={"w-100 mt-4"}>
+                      <h1>Deals for
+                          <span className={"inline-game-card"}>{gameLookupData.info.title}</span>
+                      </h1>
+                  </div>
+              }
           </div>
           <div className={"results-container d-flex justify-content-center align-items-center w-100"}>
               { gameLookupData !== undefined && gameLookupData.info !== undefined &&

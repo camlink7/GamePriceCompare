@@ -14,6 +14,21 @@
 
 }
 
+.inline-game-card {
+  background-color: $fg-color;
+  padding: 0.2rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  color: orange;
+  font-style: italic;
+}
+
+.inline-game-card-icon {
+  height: 3rem;
+  width: 3rem;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 576px) {
   .game-search-container {
     width: 90% !important;

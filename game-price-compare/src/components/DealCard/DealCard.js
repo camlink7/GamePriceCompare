@@ -23,9 +23,12 @@ function DealCard(props) {
                            className="card-img-top deal-card-image mt-3" alt="deal image"/>
                     <div className="card-body deal-card-body">
                         <h5 className="card-title deal-card-price">${props.deal.price}</h5>
-                        <p className="card-text deal-card-body">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                        { props.deal.price < props.deal.retailPrice &&
+                            <del className="card-title deal-card-retail-price">${props.deal.retailPrice}</del>
+                        }
+
+                        <a href={`https://www.cheapshark.com/redirect?dealID=${props.deal.dealID}`}
+                           className="btn btn-primary deal-card-btn mt-3" target="_blank">View in store</a>
                     </div> </>
 
                 :   <div className={"d-flex justify-content-center align-items-center"}>

@@ -1,19 +1,39 @@
 @import "../../index.scss";
 
 .deal-card-outer {
-  width: 18rem;
+  width: 13rem;
   height: 15rem;
   background-color: $fg-color;
   margin: 2rem;
+  background-image: linear-gradient(90deg,
+          $fg-color 0%,
+          lighten($fg-color, 5%) 50%,
+          $fg-color 100%
+  );
 }
 
 .deal-card-body {
-  background-color: $fg-color;
+  background-image: linear-gradient(90deg,
+          $fg-color 0%,
+          lighten($fg-color, 5%) 50%,
+          $fg-color 100%
+  );
 }
 
 .deal-card-image {
-  height: 10rem;
-  width: 10rem;
+  height: 5rem;
+  width: 100%;
   align-self: center;
   object-fit: contain;
+}
+
+.deal-card-btn {
+  background-color: $btn-color;
+  border: none;
+}.deal-card-btn:hover {
+   background-color: lighten($btn-color, 5%);
+ }
+
+.deal-card-retail-price {
+  opacity: 0.5;
 }
