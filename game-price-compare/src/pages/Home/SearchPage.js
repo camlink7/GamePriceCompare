@@ -2,7 +2,7 @@ import React from "react";
 import {useRef, useState, useEffect} from "react";
 import "./SearchPage.scss";
 import Searchbar from "../../components/Searchbar/Searchbar";
-import {useGetListOfGames} from "../../api/CheapSharkAPI";
+import {useGameLookup, useGetListOfGames} from "../../api/CheapSharkAPI";
 import GameResultCard from "../../components/GameResultCard/GameResultCard";
 
 export default function SearchPage() {
@@ -10,14 +10,25 @@ export default function SearchPage() {
     const searchTitleRef = useRef({value: ""});
     const [searchTitle, setSearchTitle] = useState("");
 
+    const [currentGameID, setCurrentGameID] = useState("");
 
-    //Search list of games API req, only enabled if searchTitle is empty
+
+    //List of Games API Call
     const {data: searchData, error: searchDataError, status: searchDataStatus,
         isLoading: searchDataIsLoading, isRefetching: searchDataIsRefetching, refetch: refetchSearchData,
         dataUpdatedAt: searchDataUpdatedAt} = useGetListOfGames(searchTitle, !!searchTitle);
     useEffect(() => {
 
     }, [searchData]);
+
+
+    //List of Deals API Call
+    const {data: gameLookupData, error: gameLookupError, status: gameLookupStatus,
+        isLoading: gameLookupIsLoading, isRefetching: gameLookupIsRefetching, refetch: refetchgameLookup,
+        dataUpdatedAt: gameLookupUpdatedAt} = useGameLookup(currentGameID, !!currentGameID);
+    useEffect(() => {
+
+    }, [gameLookupData]);
 
     /* On Game Search Change*/
     const onSearchChange = () => {
@@ -29,6 +40,17 @@ export default function SearchPage() {
 
     /* END On Game Search Change */
 
+
+    /* On Game Result Click */
+
+    useEffect(() => {
+        setSearchTitle("");
+        searchTitleRef.current.value = "";
+        if (currentGameID !== "") { refetchgameLookup().then(); }
+    }, [currentGameID]);
+
+    /* END On Game Result Click */
+
     return (
       <div className={"d-inline vh-100 w-100 justify-content-center align-items-center text-center"}>
           <div className={"d-inline w-100 search-container justify-content-center align-items-center text-center"}>
@@ -37,25 +59,28 @@ export default function SearchPage() {
                     hasBoxShadow={searchData && searchData.length === 0}/>
               </div>
               <div className={"d-flex justify-content-center align-items-center"}>
-                  {searchData && !searchDataIsLoading && !searchDataIsRefetching
-                      ? <div className={`w-50 game-search-container ${searchTitle.trim() === "" && "d-none"}`}>
+                  {searchData
+                      && <div className={`w-50 game-search-container ${searchTitle.trim() === "" && "d-none"}`}>
                           {searchData.length > 0 ? searchData.map((result) => (
-                              <GameResultCard result={result}/>
+                              <GameResultCard result={result} setCurrentGameID={setCurrentGameID}/>
                           ))
                               : <p>No Results Found</p>
                           }
-                      </div>
-                      : <div className={'w-50 mt-3 game-search-container'}>
-                          <div className="spinner-border" role="status">
-                              <span className="visually-hidden">Loading...</span>
-                          </div>
                       </div>
 
                   }
               </div>
           </div>
           <div className={"results-container"}>
+              { gameLookupData !== undefined && gameLookupData.info !== undefined &&
+                  <div>
+                      { gameLookupData.deals.map((deal) => (
+                          <p>{deal.price}</p>
+                      ))
 
+                      }
+                  </div>
+              }
           </div>
       </div>
     );

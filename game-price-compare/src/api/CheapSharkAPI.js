@@ -22,3 +22,15 @@ export const useGetListOfGames = (searchTitle, enabled) => {
     }, enabled: enabled});
 }
 
+export const useGameLookup = (gameID, enabled) => {
+    return useQuery({queryKey: 'getListOfGames', queryFn: async () => {
+            const res = await get(`games?id=${gameID}`);
+            if (res.errored) {
+                throw new Error("Couldn't lookup game info!");
+            }
+            return await res.json().then((data) => {
+                return data;
+            });
+        }, enabled: enabled});
+}
+
