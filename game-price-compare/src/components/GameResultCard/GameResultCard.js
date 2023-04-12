@@ -4,8 +4,8 @@ import "./GameResultCard.scss";
 
 function GameResultCard(props) {
     return (
-        <div className={"game-result-card-outer d-flex m-2"}>
-            <div className={"game-result-card-inner w-50 d-flex justify-content-start align-items-center text-center"}>
+        <div className={"game-result-card-outer d-flex"}>
+            <div className={"game-result-card-inner w-100 d-flex justify-content-start align-items-center text-center"}>
                 <img className="game-result-card-icon" src={props.thumb} alt={"game-icon"}/>
                 <h1 className="game-result-card-title fs-2 mx-3">{props.external}</h1>
             </div>

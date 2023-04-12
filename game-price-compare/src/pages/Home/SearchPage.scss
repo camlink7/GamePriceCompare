@@ -1,7 +1,22 @@
-.game-search-container {
+@import "../../index.scss";
 
+.game-search-container {
+  background-color: $fg-color;
+  margin-top: -2rem;
+  border-top: solid 3rem $fg-color;
+  border-radius: 0.5rem;
+  width: 50% !important;
+  max-height: 30rem;
+  overflow-y: scroll;
 }
 
 .search-container {
 
+}
+
+@media screen and (max-width: 576px) {
+  .game-search-container {
+    width: 90% !important;
+    margin-top: -2rem;
+  }
 }

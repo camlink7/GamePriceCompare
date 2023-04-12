@@ -1,19 +1,30 @@
 @import "../../index.scss";
 
 .game-result-card-outer {
-
-}
+  border-bottom: solid 2px $border-color;
+}.game-result-card-outer:last-child {
+  border: none !important;
+ }
 
 .game-result-card-inner {
   background-color: $fg-color;
   border-radius: 0.5rem;
-}
+}.game-result-card-inner:hover {
+   cursor: pointer;
+   background-color: lighten($fg-color, 5%);
+
+    >.game-result-card-icon {
+      background-color: lighten($fg-color, 5%);
+    }
+ }
 
 .game-result-card-icon {
-  height: 100px;
-  width: 100px;
-  background-color: $fg-color;
-  border: solid $fg-color 5px;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  background-color: inherit !important;
+  margin: 0.5rem;
+  border: solid inherit 5px;
   border-radius: 0.5rem;
 }
 
