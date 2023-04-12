@@ -4,6 +4,7 @@ import "./SearchPage.scss";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import {useGameLookup, useGetListOfGames} from "../../api/CheapSharkAPI";
 import GameResultCard from "../../components/GameResultCard/GameResultCard";
+import DealCard from "../../components/DealCard/DealCard";
 
 export default function SearchPage() {
 
@@ -22,9 +23,9 @@ export default function SearchPage() {
     }, [searchData]);
 
 
-    //List of Deals API Call
+    //Game Lookup API Call
     const {data: gameLookupData, error: gameLookupError, status: gameLookupStatus,
-        isLoading: gameLookupIsLoading, isRefetching: gameLookupIsRefetching, refetch: refetchgameLookup,
+        isLoading: gameLookupIsLoading, isRefetching: gameLookupIsRefetching, refetch: refetchGameLookup,
         dataUpdatedAt: gameLookupUpdatedAt} = useGameLookup(currentGameID, !!currentGameID);
     useEffect(() => {
 
@@ -46,7 +47,7 @@ export default function SearchPage() {
     useEffect(() => {
         setSearchTitle("");
         searchTitleRef.current.value = "";
-        if (currentGameID !== "") { refetchgameLookup().then(); }
+        if (currentGameID !== "") { refetchGameLookup().then(); }
     }, [currentGameID]);
 
     /* END On Game Result Click */
@@ -75,7 +76,7 @@ export default function SearchPage() {
               { gameLookupData !== undefined && gameLookupData.info !== undefined &&
                   <div>
                       { gameLookupData.deals.map((deal) => (
-                          <p>{deal.price}</p>
+                          <DealCard deal={deal}/>
                       ))
 
                       }

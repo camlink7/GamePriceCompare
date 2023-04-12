@@ -23,14 +23,26 @@ export const useGetListOfGames = (searchTitle, enabled) => {
 }
 
 export const useGameLookup = (gameID, enabled) => {
-    return useQuery({queryKey: 'getListOfGames', queryFn: async () => {
-            const res = await get(`games?id=${gameID}`);
+    return useQuery({queryKey: 'gameLookup', queryFn: async () => {
+        const res = await get(`games?id=${gameID}`);
+        if (res.errored) {
+            throw new Error("Couldn't lookup game info!");
+        }
+        return await res.json().then((data) => {
+            return data;
+        });
+    }, enabled: enabled});
+}
+
+export const useDealLookup = (dealID) => {
+    return useQuery({queryKey: 'dealLookup', queryFn: async () => {
+            const res = await get(`deals?id=${dealID}`);
             if (res.errored) {
-                throw new Error("Couldn't lookup game info!");
+                throw new Error("Couldn't lookup deal info!");
             }
             return await res.json().then((data) => {
                 return data;
             });
-        }, enabled: enabled});
+        }});
 }
 
