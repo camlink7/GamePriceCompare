@@ -5,17 +5,18 @@ import "./GameResultCard.scss";
 function GameResultCard(props) {
     return (
         <div className={"game-result-card-outer d-flex"}>
-            <div className={"game-result-card-inner w-100 d-flex justify-content-start align-items-center text-center"}>
-                <img className="game-result-card-icon" src={props.thumb} alt={"game-icon"}/>
-                <h1 className="game-result-card-title fs-2 mx-3">{props.external}</h1>
+            <div className={"game-result-card-inner w-100 d-flex justify-content-start align-items-center"}>
+                <img className="game-result-card-icon" src={props.result.thumb} alt={"game-icon"}/>
+                <div className={"d-inline-block mx-3 "}>
+                    <h1 className="game-result-card-title fs-4">{props.result.external}</h1>
+                    <h1 className={"game-result-card-price d-flex fs-6"}>${props.result.cheapest}</h1>
+                </div>
             </div>
         </div>
     );
 }
 
 GameResultCard.propTypes = {
-    gameID: PropTypes.string.isRequired,
-    external: PropTypes.string.isRequired,
-    thumb: PropTypes.string.isRequired
+    result: PropTypes.object.isRequired
 }
 export default GameResultCard;

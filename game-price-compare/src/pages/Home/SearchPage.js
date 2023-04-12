@@ -40,7 +40,7 @@ export default function SearchPage() {
                   { searchData && !searchDataIsLoading && !searchDataIsRefetching
                       ? <div className={`w-50 game-search-container ${searchData.length === 0 && "d-none"}`}>
                           {searchData.map((result) => (
-                              <GameResultCard gameID={result.gameID} thumb={result.thumb} external={result.external}/>
+                              <GameResultCard result={result}/>
                           ))}
                       </div>
                       : <div className={'w-50 mt-3'}>

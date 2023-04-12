@@ -21,7 +21,7 @@
 .game-result-card-icon {
   width: 75px;
   height: 75px;
-  object-fit: cover;
+  object-fit: contain;
   background-color: inherit !important;
   margin: 0.5rem;
   border: solid inherit 5px;
@@ -30,4 +30,8 @@
 
 .game-result-card-title {
 
+}
+
+.game-result-card-price {
+  font-weight: bold;
 }
