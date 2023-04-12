@@ -36,7 +36,7 @@ function DealCard(props) {
                     </div>
 
             }
-
+            <div className={"w-100 deal-card-cheapest-text d-none"}>Cheapest</div>
         </div>
     );
 }

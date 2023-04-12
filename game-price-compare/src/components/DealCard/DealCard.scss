@@ -11,6 +11,18 @@
           $fg-color 100%
   );
 }
+.deal-card-outer:first-child {
+  border: solid orange 5px;
+
+  >.deal-card-cheapest-text {
+    display: inline !important;
+    background-color: orange;
+    font-family: inherit;
+    font-size: 120%;
+    font-weight: normal;
+    border-radius: 1rem 1rem 0rem 0rem;
+  }
+}
 
 .deal-card-body {
   background-image: linear-gradient(90deg,
