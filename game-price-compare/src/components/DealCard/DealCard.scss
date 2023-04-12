@@ -4,8 +4,16 @@
   width: 18rem;
   height: 15rem;
   background-color: $fg-color;
+  margin: 2rem;
 }
 
 .deal-card-body {
   background-color: $fg-color;
+}
+
+.deal-card-image {
+  height: 10rem;
+  width: 10rem;
+  align-self: center;
+  object-fit: contain;
 }

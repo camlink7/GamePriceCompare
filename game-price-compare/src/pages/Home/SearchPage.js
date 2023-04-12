@@ -2,7 +2,7 @@ import React from "react";
 import {useRef, useState, useEffect} from "react";
 import "./SearchPage.scss";
 import Searchbar from "../../components/Searchbar/Searchbar";
-import {useGameLookup, useGetListOfGames} from "../../api/CheapSharkAPI";
+import {useGameLookup, useGetListOfGames, useGetStoresInfo} from "../../api/CheapSharkAPI";
 import GameResultCard from "../../components/GameResultCard/GameResultCard";
 import DealCard from "../../components/DealCard/DealCard";
 
@@ -31,6 +31,16 @@ export default function SearchPage() {
 
     }, [gameLookupData]);
 
+    //Stores Info API Call
+    const {data: storesInfoData, error: storesInfoError, status: storesInfoStatus,
+        isLoading: storesInfoIsLoading, isRefetching: storesInfoIsRefetching, refetch: refetchStoresInfo,
+        dataUpdatedAt: storesInfoUpdatedAt} = useGetStoresInfo();
+    useEffect(() => {
+
+    }, [storesInfoData]);
+
+
+
     /* On Game Search Change*/
     const onSearchChange = () => {
         setSearchTitle(searchTitleRef.current.value);
@@ -52,6 +62,24 @@ export default function SearchPage() {
 
     /* END On Game Result Click */
 
+
+    /* Find Store info by ID */
+    const findStoreById = (storeID) => {
+        if (storesInfoData) {
+            for (let i = 0; i < storesInfoData.length; i++) {
+                if (storesInfoData[i].storeID === storeID) {
+                    return storesInfoData[i];
+                }
+            }
+        }
+        else {
+            refetchStoresInfo().then(() => {
+                findStoreById(storesInfoData);
+            });
+        }
+        return null;
+    }
+     /* END Find Stores info by ID */
     return (
       <div className={"d-inline vh-100 w-100 justify-content-center align-items-center text-center"}>
           <div className={"d-inline w-100 search-container justify-content-center align-items-center text-center"}>
@@ -72,11 +100,11 @@ export default function SearchPage() {
                   }
               </div>
           </div>
-          <div className={"results-container"}>
+          <div className={"results-container d-flex justify-content-center align-items-center w-100"}>
               { gameLookupData !== undefined && gameLookupData.info !== undefined &&
-                  <div>
+                  <div className={"row d-flex justify-content-center align-items-center w-100"}>
                       { gameLookupData.deals.map((deal) => (
-                          <DealCard deal={deal}/>
+                          <DealCard deal={deal} store={findStoreById(deal.storeID)}/>
                       ))
 
                       }

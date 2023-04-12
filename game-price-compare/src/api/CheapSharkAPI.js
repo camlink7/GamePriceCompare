@@ -36,13 +36,26 @@ export const useGameLookup = (gameID, enabled) => {
 
 export const useDealLookup = (dealID) => {
     return useQuery({queryKey: 'dealLookup', queryFn: async () => {
-            const res = await get(`deals?id=${dealID}`);
-            if (res.errored) {
-                throw new Error("Couldn't lookup deal info!");
-            }
-            return await res.json().then((data) => {
-                return data;
-            });
-        }});
+        const res = await get(`deals?id=${dealID}`);
+        if (res.errored) {
+            throw new Error("Couldn't lookup deal info!");
+        }
+        return await res.json().then((data) => {
+            return data;
+        });
+    }});
 }
+
+export const useGetStoresInfo = () => {
+    return useQuery({queryKey: 'getStoreLookup', queryFn: async () => {
+        const res = await get(`stores`);
+        if (res.errored) {
+            throw new Error("Couldn't lookup store info!");
+        }
+        return await res.json().then((data) => {
+            return data;
+        });
+    }});
+}
+
 
