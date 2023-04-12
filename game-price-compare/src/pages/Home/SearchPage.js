@@ -37,13 +37,15 @@ export default function SearchPage() {
                     hasBoxShadow={searchData && searchData.length === 0}/>
               </div>
               <div className={"d-flex justify-content-center align-items-center"}>
-                  { searchData && !searchDataIsLoading && !searchDataIsRefetching
-                      ? <div className={`w-50 game-search-container ${searchData.length === 0 && "d-none"}`}>
-                          {searchData.map((result) => (
+                  {searchData && !searchDataIsLoading && !searchDataIsRefetching
+                      ? <div className={`w-50 game-search-container ${searchTitle.trim() === "" && "d-none"}`}>
+                          {searchData.length > 0 ? searchData.map((result) => (
                               <GameResultCard result={result}/>
-                          ))}
+                          ))
+                              : <p>No Results Found</p>
+                          }
                       </div>
-                      : <div className={'w-50 mt-3'}>
+                      : <div className={'w-50 mt-3 game-search-container'}>
                           <div className="spinner-border" role="status">
                               <span className="visually-hidden">Loading...</span>
                           </div>
@@ -53,7 +55,7 @@ export default function SearchPage() {
               </div>
           </div>
           <div className={"results-container"}>
-              <p>Deals here</p>
+
           </div>
       </div>
     );
