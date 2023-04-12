@@ -5,15 +5,27 @@
   background-color: lighten($fg-color, 5%);
   color: $font-color;
   border: none;
-  border-left: solid 3px $border-color;
+  border-left: solid 2px transparentize($border-color, 0.3);
+  box-shadow: 0px 10px 10px -5px black;
 }
 
 .searchbar-input {
-  background-color: $fg-color !important;
+  background-color: $fg-color;
   color: $font-color;
   border-radius: 5rem;
   padding: 0.5rem 1rem;
   border: none;
-}.searchbar-input:focus {
-  color: $font-color;
+  box-shadow: 0px 10px 10px -5px black;
+}.searchbar-input:focus{
+    background-color: $fg-color;
+    color: $font-color;
  }
+
+ 
+@media screen and (max-width: $mobile-px-threshold) {
+  .searchbar-outer {
+    width: 100% !important;
+    margin: 1rem;
+  }
+
+}

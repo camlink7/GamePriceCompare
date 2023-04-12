@@ -1,13 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import HomePage from "./pages/Home/HomePage";
+import SearchPage from "./pages/Home/SearchPage";
+import {QueryClient, QueryClientProvider} from "react-query";
 
 function App() {
-  return (
-    <div className="App">
-      <HomePage/>
-    </div>
-  );
+
+    const queryClient = new QueryClient();
+
+    return (
+        <QueryClientProvider client={queryClient}>
+            <div className="App">
+                <SearchPage/>
+            </div>
+        </QueryClientProvider>
+    );
 }
 
 export default App;

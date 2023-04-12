@@ -1,0 +1,1 @@
+export const INPUT_UPDATE_WAIT = 300 //in milliseconds
