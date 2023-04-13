@@ -14,3 +14,13 @@
           lighten($bg-color, 5%) 100%
   );
 }
+
+.help-btn {
+  transition: 0.2s;
+  padding: 0.5rem;
+  border-radius: 5rem;
+}.help-btn:hover {
+  transition: 0.2s;
+  background-color: lighten($bg-color, 15%);
+  cursor: pointer;
+ }

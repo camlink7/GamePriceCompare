@@ -32,7 +32,15 @@ text {
   font-family: "Lato", sans-serif;
 }
 
+small {
+  font-family: "Lato", sans-serif;
+}
+
 
 .blue-text {
   color: lighten($btn-color, 10%);
+}
+
+.body-content {
+  min-height: 100vh;
 }
