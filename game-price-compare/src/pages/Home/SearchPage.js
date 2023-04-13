@@ -102,9 +102,8 @@ export default function SearchPage() {
               </div>
               { gameLookupData &&
                   <div className={"w-100 mt-4"}>
-                      <h1>Deals for
-                          <span className={"inline-game-card"}>{gameLookupData.info.title}</span>
-                      </h1>
+                      <h1 >Deals for</h1>
+                      <span className={"inline-game-card"}>{gameLookupData.info.title}</span>
                   </div>
               }
           </div>
