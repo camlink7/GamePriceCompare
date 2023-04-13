@@ -13,6 +13,8 @@
           $fg-color 50%,
           lighten($bg-color, 5%) 100%
   );
+  padding-top: 0.3rem;
+  padding-bottom: 0;
 }
 
 .help-btn {
@@ -24,3 +26,8 @@
   background-color: lighten($bg-color, 15%);
   cursor: pointer;
  }
+
+.logo {
+  width: auto;
+  height: 4rem;
+}

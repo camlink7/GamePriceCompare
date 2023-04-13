@@ -6,7 +6,7 @@ function HeaderBar(props) {
     return (
         <nav className="navbar">
             <div className="container-fluid">
-                <span className="navbar-brand title mb-0">Game Price Finder</span>
+                <img className="logo" src={"/logo-no-bg.svg"}></img>
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
                      className="bi bi-question-lg help-btn" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
