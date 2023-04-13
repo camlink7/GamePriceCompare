@@ -10,7 +10,6 @@ export default function SearchPage() {
 
     const searchTitleRef = useRef({value: ""});
     const [searchTitle, setSearchTitle] = useState("");
-
     const [currentGameID, setCurrentGameID] = useState("");
 
 
@@ -101,9 +100,16 @@ export default function SearchPage() {
 
               </div>
               { gameLookupData &&
-                  <div className={"w-100 mt-4"}>
-                      <h1 >Deals for</h1>
-                      <span className={"inline-game-card"}>{gameLookupData.info.title}</span>
+                  <div className={"w-100 d-flex justify-content-center align-items-center mt-4"}>
+                      <div className={""}>
+                          <h2 className={"inline-game-card-title mb-2"}>Deals for</h2>
+                          <div className="card inline-game-card">
+                              <img src={gameLookupData.info.thumb} className="inline-game-card-icon card-img-top" alt="game icon"/>
+                              <div className="card-body inline-game-card-body">
+                                  <h1 className={"inline-game-card-title"}>{gameLookupData.info.title}</h1>
+                              </div>
+                          </div>
+                      </div>
                   </div>
               }
           </div>
