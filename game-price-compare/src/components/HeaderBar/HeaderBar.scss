@@ -1,0 +1,16 @@
+@import "../../index.scss";
+
+.title {
+  color: $font-color;
+  font-family: inherit;
+}.title:hover {
+  color: $font-color;
+ }
+
+.navbar {
+  background-image: linear-gradient(90deg,
+          lighten($fg-color, 10%),
+          $fg-color 50%,
+          lighten($bg-color, 5%) 100%
+  );
+}
